@@ -1,65 +1,223 @@
 /*RESET.CSS*/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-                                                                /* Arbait */
 
-.wrapper{
-	max-width: 1440px;
-	width: 100%;
-	margin: 0 auto;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
 }
-.center{
-	max-width: 1125px;
-	width: 100%;
-	margin: 0 auto;
+
+body {
+    line-height: 1;
 }
-body{
-	font-family: 'Roboto';
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.preloader {
+    /*фиксированное позиционирование*/
+    position: fixed;
+    /* координаты положения */
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* фоновый цвет элемента */
+    background: #e0e0e0;
+    /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+    z-index: 1001;
+}
+
+.preloader__row {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    background-color: #337ab7;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+    top: auto;
+    bottom: 0;
+    animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes preloader-bounce {
+    0%,
+    100% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+.loaded_hiding .preloader {
+    transition: 0.3s opacity;
+    opacity: 0;
+}
+
+.loaded .preloader {
+    display: none;
+}
+
+
+/* Arbait */
+
+.wrapper {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.center {
+    max-width: 1125px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Roboto';
     --table-background-color: #fff;
     --table-divider-color: #eff2f5;
-    --table-row-hover-background-color: rgb(248,250,253);
-    
+    --table-row-hover-background-color: rgb(248, 250, 253);
     --control-border-color: #101113;
     --control-background-color: #fff;
     --control-caret-color: #000;
@@ -91,19 +249,20 @@ body{
     --color-light-neutral-5: #808a9d;
     --color-light-neutral-6: #58667e;
     --color-light-neutral-7: #eff2f5;
-    --color-gradient-end: rgba(248,250,253,0);
+    --color-gradient-end: rgba(248, 250, 253, 0);
     --button-border-color: #cfd6e4;
     --button-bg-color: #222531;
     --breakpoint-md: 768px;
     --dark-bg: #000;
     --card-bg: #fff;
-    --box-shadow: 0px 0px 2px rgba(128,138,157,0.12),0px 0px 24px rgba(128,138,157,0.14);
+    --box-shadow: 0px 0px 2px rgba(128, 138, 157, 0.12), 0px 0px 24px rgba(128, 138, 157, 0.14);
 }
 
-															/* header */
 
-.headerSect1{
-	display: flex;
+/* header */
+
+.headerSect1 {
+    display: flex;
     flex-direction: row;
     -webkit-box-align: center;
     align-items: center;
@@ -114,8 +273,8 @@ body{
     margin: 0px auto;
 }
 
-header > .headerSect1{
-	display: flex;
+header>.headerSect1 {
+    display: flex;
     flex-direction: row;
     -webkit-box-align: center;
     align-items: center;
@@ -125,15 +284,17 @@ header > .headerSect1{
     overflow: hidden;
     margin: 0px auto;
 }
- .logoLick{
+
+.logoLick {
     margin-right: auto;
 }
 
- .logoImg{
-	width: 168px;
+.logoImg {
+    width: 168px;
     height: 28px;
 }
- .logoImg2{
+
+.logoImg2 {
     position: relative;
     background-image: url(https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_1.svg?_=9448cbf);
     display: inline-block;
@@ -141,65 +302,76 @@ header > .headerSect1{
     background-repeat: no-repeat;
     background-size: contain;
 }
-header .burgerst{
+
+header .burgerst {
     cursor: pointer;
     height: 24px;
     line-height: 24px;
     margin-left: 15px;
 }
-header .burgerst .burgersvg{
+
+header .burgerst .burgersvg {
     margin: 0px;
     height: 24px;
     width: 24px;
 }
-.burgersvg > line{
+
+.burgersvg>line {
     stroke: currentcolor;
     stroke-width: 2;
 }
-header > .headerSect1 .stekLink{
-	display: flex;
+
+header>.headerSect1 .stekLink {
+    display: flex;
     flex: 1 1 0%;
     padding-left: 20px;
-	-webkit-box-align: center;
+    -webkit-box-align: center;
     align-items: center;
 }
-header > .headerSect1 .stekLink .podStekLink{
+
+header>.headerSect1 .stekLink .podStekLink {
     display: flex;
     flex: 1 1 0%;
     -webkit-box-pack: start;
     justify-content: flex-start;
 }
-header > .headerSect1 .stekLink .podStekLink .bildS{
-	font-size: 14px;
+
+header>.headerSect1 .stekLink .podStekLink .bildS {
+    font-size: 14px;
     font-weight: 600;
     line-height: 21px;
     cursor: pointer;
     display: inline-block;
 }
-header > .headerSect1 .stekLink .podStekLink .bildS .silkaHed{
-	padding: 0px 8px 0px 0px;
+
+header>.headerSect1 .stekLink .podStekLink .bildS .silkaHed {
+    padding: 0px 8px 0px 0px;
     color: var(--text-color);
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     min-height: 61px;
-	text-decoration: none;
+    text-decoration: none;
 }
-header > .headerSect1 .stekLink .podStekLink .bildS .silkaHed .silkaHedText{
-	position: relative;
+
+header>.headerSect1 .stekLink .podStekLink .bildS .silkaHed .silkaHedText {
+    position: relative;
     display: inline;
 }
-header > .headerSect1 .stekLink .podStekLink .razdel{
-	flex: 1 1 0%;
+
+header>.headerSect1 .stekLink .podStekLink .razdel {
+    flex: 1 1 0%;
     max-width: 24px;
     min-width: 12px;
 }
-header > .headerSect1 .WoButt button{
-	height: 36px;
+
+header>.headerSect1 .WoButt button {
+    height: 36px;
     white-space: nowrap;
 }
-header > .headerSect1 .ButtonLogIn{
-	-webkit-box-align: center;
+
+header>.headerSect1 .ButtonLogIn {
+    -webkit-box-align: center;
     align-items: center;
     background: transparent;
     border: 0px;
@@ -217,7 +389,8 @@ header > .headerSect1 .ButtonLogIn{
     padding: 0px 16px;
     line-height: 18px;
 }
-header > .headerSect1 .ButtonSingnUp{
+
+header>.headerSect1 .ButtonSingnUp {
     -webkit-box-align: center;
     align-items: center;
     background: rgb(56, 97, 251);
@@ -236,9 +409,11 @@ header > .headerSect1 .ButtonSingnUp{
     padding: 0px 16px;
     line-height: 18px;
 }
+
+
 /* Навигатор */
 
-.navigator{
+.navigator {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -250,7 +425,8 @@ header > .headerSect1 .ButtonSingnUp{
     height: 100%;
     background-color: rgb(255, 255, 255);
 }
-.logInf{
+
+.logInf {
     position: fixed;
     height: 50%;
     width: 50%;
@@ -261,7 +437,7 @@ header > .headerSect1 .ButtonSingnUp{
     background-color: rgb(185, 126, 126);
 }
 
-.navigatorhead{
+.navigatorhead {
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -274,12 +450,11 @@ header > .headerSect1 .ButtonSingnUp{
     box-shadow: rgba(128, 138, 157, 0.12) 0px 8px 32px, rgba(128, 138, 157, 0.08) 0px 1px 2px;
     z-index: 934;
 }
-.burgerkrest{
+
+.burgerkrest {
     border-radius: 8px;
     padding: 0px;
     width: 48px;
-
-
     align-items: center;
     background: transparent;
     border: 0px;
@@ -294,17 +469,20 @@ header > .headerSect1 .ButtonSingnUp{
     font-size: 16px;
     line-height: 26px;
 }
-.krestsvg{
+
+.krestsvg {
     margin: 0px;
     height: 24px;
     width: 24px;
 }
-.clasnovigspisok{
+
+.clasnovigspisok {
     padding: 8px 16px;
     height: calc(100% - 60px);
     overflow: auto;
 }
-.ulburg{
+
+.ulburg {
     font-size: 16px;
     font-weight: 600;
     line-height: 16px;
@@ -313,10 +491,12 @@ header > .headerSect1 .ButtonSingnUp{
     margin: 0px;
     padding: 0px;
 }
-.ulburg > li{
+
+.ulburg>li {
     display: block;
 }
-.lizaglav{
+
+.lizaglav {
     padding: 0px 8px;
     display: flex;
     -webkit-box-align: center;
@@ -328,26 +508,31 @@ header > .headerSect1 .ButtonSingnUp{
     transition: all 0.2s ease 0s;
     border-bottom: 1px solid rgb(239, 242, 245);
 }
-.lizaglav > .liname{
+
+.lizaglav>.liname {
     line-height: 1.5;
     margin: 0px;
     color: rgb(23, 25, 36);
     font-size: 16px;
     font-weight: 600;
 }
-.lizaglav > .lisvg{
+
+.lizaglav>.lisvg {
     margin: 0px;
 }
-.licontent{
+
+.licontent {
     height: 0px;
     padding: 0px 8px;
     transition: height 0.36s ease 0s;
     overflow-y: hidden;
 }
-.podlicontent{
+
+.podlicontent {
     padding: 4px 0px 10px;
 }
-.lilinkA{
+
+.lilinkA {
     padding: 10px 0px;
     display: flex;
     width: 100%;
@@ -357,25 +542,30 @@ header > .headerSect1 .ButtonSingnUp{
     text-decoration: none;
     cursor: pointer;
 }
-.linkimg{
+
+.linkimg {
     width: 28px;
     height: 28px;
 }
-.linkimg > img{
+
+.linkimg>img {
     width: 100%;
     height: 100%;
 }
-.litext{
+
+.litext {
     line-height: 1.5;
     margin: 0px 0px 0px 12px;
     color: rgb(23, 25, 36);
     font-size: 16px;
     font-weight: 500;
 }
-.regist{
+
+.regist {
     margin-top: 40px;
 }
-.registcaa{
+
+.registcaa {
     align-items: center;
     background: rgb(56, 97, 251);
     border: 0px;
@@ -393,7 +583,8 @@ header > .headerSect1 .ButtonSingnUp{
     padding: 0px 24px;
     line-height: 24px;
 }
-.registli{
+
+.registli {
     align-items: center;
     background: rgb(239, 242, 245);
     border: 0px;
@@ -413,26 +604,32 @@ header > .headerSect1 .ButtonSingnUp{
     margin-top: 8px;
 }
 
+
 /* Надпись */
 
-.bodimidl > .Todays{
+.bodimidl>.Todays {
     padding-top: 24px;
     padding-bottom: 44px;
 }
 
+
 /* Таблица */
 
-.table1{
+.table1 {
     margin: auto;
     font-size: 14px;
     width: 100%;
     transform: translateZ(0px);
 }
-.gran{
-    border-top: 2px solid #eff2f5;;
-    border-bottom: 2px solid #eff2f5;;
+
+.gran {
+    border-top: 2px solid #eff2f5;
+    ;
+    border-bottom: 2px solid #eff2f5;
+    ;
 }
-.gran >th{
+
+.gran>th {
     border-top: 1px solid var(--table-divider-color);
     padding: 11px 10px;
     text-align: right;
@@ -440,93 +637,96 @@ header > .headerSect1 .ButtonSingnUp{
     font-size: 12px;
 }
 
-.otstup{
-display: flex;
-justify-content: right;
+.otstup {
+    display: flex;
+    justify-content: right;
 }
 
-.boxstail1{
+.boxstail1 {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
 }
 
-.boxstail2{
+.boxstail2 {
     cursor: pointer;
     display: flex;
     flex-direction: row;
     -webkit-box-align: right;
     align-items: center;
 }
-.boxstail2 > p{
+
+.boxstail2>p {
     white-space: nowrap;
 }
 
-.boxstailP{
+.boxstailP {
     line-height: 1.5;
     margin: 0px;
     color: rgb(23, 25, 36);
     font-size: 12px;
 }
-.rowno{
+
+.rowno {
     display: flex;
     justify-content: right;
 }
 
-
-
-tbody{
+tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
 }
 
-tbody td{
+tbody td {
     border-bottom: 2px solid var(--table-divider-color);
     padding: 10px;
     background-color: var(--table-background-color);
     vertical-align: middle;
 }
 
-.stilP1{
+.stilP1 {
     line-height: 1.5;
     margin: 0px;
     color: rgb(88, 102, 126);
     font-size: 12px;
 }
 
-.nameValut{
+.nameValut {
     box-sizing: border-box;
     margin: 0px;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
 }
-.cmc-link{
+
+.cmc-link {
     text-decoration: none;
 }
-.chartmini{
+
+.chartmini {
     max-width: 300px;
     max-height: 150px;
-    height: 99%; 
+    height: 99%;
     width: 99%;
 }
 
-.nameValut2{
+.nameValut2 {
     box-sizing: border-box;
     margin: 0px;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
 }
-.nameValut2 > .coin-logo{
+
+.nameValut2>.coin-logo {
     height: 24px;
     width: 24px;
     border-radius: 12px;
 }
 
-.nameValut2 > .nameValut3{
+.nameValut2>.nameValut3 {
     box-sizing: border-box;
     margin: 0px;
     display: flex;
@@ -534,56 +734,55 @@ tbody td{
     -webkit-box-align: center;
     align-items: center;
 }
-.nameValut3 > p{
+
+.nameValut3>p {
     font-size: 14px;
     margin: 0px 0px 0px 5px;
     line-height: 24px;
 }
 
-.abrValut{
+.abrValut {
     display: flex;
     flex-direction: row;
     -webkit-box-align: center;
     align-items: center;
 }
-.coin-item-symbol{
+
+.coin-item-symbol {
     font-size: 14px;
     margin: 0px 0px 0px 6px;
     line-height: 24px;
     color: rgb(128, 138, 157);
 }
 
-.priceColor{
+.priceColor {
     color: black;
     text-align: right;
 }
 
-@media (max-width: 1150px){
-    .table1{
+@media (max-width: 1150px) {
+    .table1 {
         display: block;
         width: 100%;
     }
-    .table1{
+    .table1 {
         overflow-x: auto;
     }
-    .table1 .medialeft0{
+    .table1 .medialeft0 {
         display: none;
     }
-    .table1 .medialeft1{
+    .table1 .medialeft1 {
         position: sticky;
         left: 0.1px;
         z-index: 100;
         background-color: #fff;
         max-width: 100%;
     }
-    .table1 .medialeft2{
+    .table1 .medialeft2 {
         position: sticky;
         left: 25px;
         z-index: 100;
         background-color: #fff;
         max-width: 100%;
     }
-
-
-
 }
