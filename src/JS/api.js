@@ -1,24 +1,23 @@
-
 export const API_COIN = "9698226c296e798b640d9d0c82d8bca28292a6c4444397c0426d5ea9cec3c2f7";
 export const COIN_FOR_URL = "BTC,ETH,XRP,ADA";
 const URL_COIN = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${COIN_FOR_URL}&tsyms=USD&extraParams=${API_COIN}`;
 import { Plotting } from "./miniChart";
-import * as _ from 'lodash';
-const ALL_COIN1 =  () =>{
-fetch(URL_COIN).then(
-    response => {
-        return response.json();
-    }
-)
-.then(
-    data => {
-        const bodiTab = document.querySelector("#bodiTab");
-        bodiTab.innerHTML ="";
-        let num = 0;
-        for (let coin in data.RAW) {
-            num = num + 1
-            bodiTab.innerHTML +=
-            `<tr>
+import * as _ from "lodash";
+const ALL_COIN1 = () => {
+    fetch(URL_COIN).then(
+            response => {
+                return response.json();
+            }
+        )
+        .then(
+            data => {
+                const bodiTab = document.querySelector("#bodiTab");
+                bodiTab.innerHTML = "";
+                let num = 0;
+                for (let coin in data.RAW) {
+                    num = num + 1
+                    bodiTab.innerHTML +=
+                        `<tr>
                 <td class="medialeft0"><span><span class="icon-Star"></span></span></td>
                 <td style="text-align: left;" class="medialeft1">
                     <p color="text2" font-size="0" class="stilP1">${num}</p>
@@ -82,9 +81,9 @@ fetch(URL_COIN).then(
                     </a>
                 </td>
             </tr>`
-        };
-        Plotting();
-    }
-)
+                };
+                Plotting();
+            }
+        )
 }
-export {ALL_COIN1};
+export { ALL_COIN1 };

@@ -1,20 +1,20 @@
-import { dataCenacoinD, dataCenacoinT } from './chartdata';
-import { Chart, registerables } from 'chart.js';
-import * as _ from 'lodash';
+import { dataCenacoinD, dataCenacoinT } from "./chartdata";
+import { Chart, registerables } from "chart.js";
+import * as _ from "lodash";
 const modal = document.querySelector("#myModal");
 const tbody = document.querySelector("#bodiTab");
 const funModal = () => {
-    tbody.addEventListener("click", function (event) {
+    tbody.addEventListener("click", function(event) {
         let coin = event.target.closest("div").querySelector(".coin-item-symbol")
         const coinVal = coin.innerText;
         const API_COIN = "9698226c296e798b640d9d0c82d8bca28292a6c4444397c0426d5ea9cec3c2f7";
         const URL_COIN2 = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coinVal}&tsyms=USD&extraParams=${API_COIN}`;
         const ALL_COIN2 = () => {
             fetch(URL_COIN2).then(
-                response => {
-                    return response.json();
-                }
-            )
+                    response => {
+                        return response.json();
+                    }
+                )
                 .then(
                     data => {
                         for (let coin in data.RAW) {
@@ -71,23 +71,23 @@ const funModal = () => {
                                 </div>`
                                     const inmp1 = document.getElementById("inmp1");
                                     const inmp2 = document.getElementById("inmp2");
-                                    inmp1.oninput = function () {
+                                    inmp1.oninput = function() {
                                         inmp2.value = (inmp1.value * data.RAW[coin].USD.PRICE)
                                     }
-                                    inmp2.oninput = function () {
+                                    inmp2.oninput = function() {
                                         inmp1.value = (inmp2.value / data.RAW[coin].USD.PRICE)
                                     }
-                                    const ctx = document.getElementById('myChart').getContext('2d');
+                                    const ctx = document.getElementById("myChart").getContext("2d");
                                     let myChart = new Chart(ctx, {
-                                        type: 'line',
+                                        type: "line",
                                         data: {
                                             labels: dataCenacoinT,
                                             datasets: [{
-                                                label: '# of Votes',
+                                                label: "# of Votes",
                                                 data: dataCenacoinD,
                                                 fill: true,
-                                                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
-                                                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+                                                backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 206, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(255, 159, 64, 0.2)"],
+                                                borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 206, 86, 1)", "rgba(75, 192, 192, 1)", "rgba(153, 102, 255, 1)", "rgba(255, 159, 64, 1)"],
                                                 borderWidth: 1,
                                                 tension: 0.1
                                             }],
@@ -102,20 +102,20 @@ const funModal = () => {
                                                         pinch: {
                                                             enabled: true,
                                                         },
-                                                        mode: 'xy',
+                                                        mode: "xy",
                                                     },
                                                 },
                                             },
                                         },
                                     })
                                     modal.style.display = "block";
-                                    
+
                                 }
                                 modalset();
                             }
                         }
                         const clos = document.getElementById("close1");
-                        clos.onclick = function () {
+                        clos.onclick = function() {
                             modal.style.display = "none";
                         }
                     }
