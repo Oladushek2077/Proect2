@@ -509,8 +509,6 @@ tbody td{
 .chartmini{
     max-width: 300px;
     max-height: 150px;
-    min-width: 10px;
-    min-height: 10px;
     height: 99%; 
     width: 99%;
 }
