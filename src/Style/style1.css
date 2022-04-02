@@ -509,8 +509,8 @@ tbody td{
 .chartmini{
     max-width: 300px;
     max-height: 150px;
-    height: 99%; 
-    width: 80%;
+    height: 100%; 
+    width: 100%;
 }
 
 .nameValut2{
