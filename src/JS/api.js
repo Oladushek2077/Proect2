@@ -1,10 +1,9 @@
 
-export const API_COIN = "9698226c296e798b640d9d0c82d8bca28292a6c4444397c0426d5ea9cec3c2f7"
-export const COIN_FOR_URL = "BTC,ETH,XRP,ADA"
-console.log(COIN_FOR_URL)
+export const API_COIN = "9698226c296e798b640d9d0c82d8bca28292a6c4444397c0426d5ea9cec3c2f7";
+export const COIN_FOR_URL = "BTC,ETH,XRP,ADA";
 const URL_COIN = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${COIN_FOR_URL}&tsyms=USD&extraParams=${API_COIN}`;
 import { Plotting } from "./miniChart";
-import * as _ from 'lodash'
+import * as _ from 'lodash';
 const ALL_COIN1 =  () =>{
 fetch(URL_COIN).then(
     response => {
@@ -15,7 +14,6 @@ fetch(URL_COIN).then(
     data => {
         const bodiTab = document.querySelector("#bodiTab");
         bodiTab.innerHTML ="";
-        console.log(data);
         let num = 0;
         for (let coin in data.RAW) {
             num = num + 1
